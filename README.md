@@ -1,10 +1,10 @@
 # David Alejandro Luna Martínez
 
-### 📘 Materia: Diseño de Software
+###  Materia: Diseño de Software
 
 ---
 
-## 💡 Descripción
+##  Descripción
 
 Este repositorio contiene los trabajos y actividades realizadas durante el curso de **Diseño de Software**, correspondiente al periodo académico **2025-2**.
 
@@ -12,21 +12,21 @@ El objetivo de esta materia es desarrollar las competencias necesarias para dise
 
 ---
 
-## 📁 Contenido
+##  Contenido
 
 - Actividad 1: 
 - Actividad 2: 
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - Java (u otro lenguaje, según el caso)
 - Git & GitHub para control de versiones
 
 ---
 
-## 🙋 Autor
+##  Autor
 
 **David Alejandro Luna Martínez**  
 Estudiante de Ingeniería de Software 
