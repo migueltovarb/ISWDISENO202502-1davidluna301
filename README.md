@@ -15,7 +15,8 @@ El objetivo de esta materia es desarrollar las competencias necesarias para dise
 ##  Contenido
 
 - Actividad 1: 
-- Actividad 2: 
+- Actividad 2:
+- Evaluacion
 
 ---
 
