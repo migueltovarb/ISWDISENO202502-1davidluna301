@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Sistema de Papelería</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">📚 Papelería Plus - Administrador</div>
+            <div class="user-info">
+                <span>Administrador: <span id="adminName"></span> (<span id="adminCode"></span>)</span>
+                <button class="btn btn-logout" onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Navegación -->
+        <nav class="admin-nav card mb-2">
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-section="gestion-pedidos">Gestión de Pedidos</a>
+                <a href="#" class="nav-link" data-section="gestion-usuarios">Gestión de Usuarios</a>
+                <a href="#" class="nav-link" data-section="gestion-productos">Gestión de Productos</a>
+            </div>
+        </nav>
+
+        <!-- Sección de Pedidos -->
+        <div id="gestion-pedidos" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Todos los Pedidos</h2>
+                    <button id="btnExportar" class="btn btn-primary">Exportar a Excel</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Vendedor</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Total</th>
+                                <th>Productos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pedidosList">
+                            <!-- Los pedidos se cargarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Usuarios -->
+        <div id="gestion-usuarios" class="section hidden">
+            <div class="row col-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Crear Nuevo Vendedor</h2>
+                    </div>
+                    <form id="formCrearUsuario">
+                        <div class="form-group">
+                            <label class="form-label">Código</label>
+                            <input type="text" name="codigo" class="form-control" required 
+                                   placeholder="Ej: VEND003">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Nombre Completo</label>
+                            <input type="text" name="nombre" class="form-control" required 
+                                   placeholder="Nombre del vendedor">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" name="password" class="form-control" required 
+                                   placeholder="Contraseña temporal">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear Vendedor</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Vendedores Registrados</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usuariosList">
+                                <!-- Los usuarios se cargarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Productos -->
+        <div id="gestion-productos" class="section hidden">
+            <div class="row col-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Agregar Producto</h2>
+                    </div>
+                    <form id="formCrearProducto">
+                        <div class="form-group">
+                            <label class="form-label">Código</label>
+                            <input type="text" name="codigo" class="form-control" required 
+                                   placeholder="Ej: PROD011">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Descripción</label>
+                            <input type="text" name="detalle" class="form-control" required 
+                                   placeholder="Nombre del producto">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Precio (S/)</label>
+                            <input type="number" name="precio" class="form-control" required 
+                                   step="0.01" min="0" placeholder="0.00">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Productos Registrados</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productosList">
+                                <!-- Los productos se cargarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script th:src="@{/js/utils.js}"></script>
+    <script th:src="@{/js/auth.js}"></script>
+    <script th:src="@{/js/admin.js}"></script>
+</body>
+</html>

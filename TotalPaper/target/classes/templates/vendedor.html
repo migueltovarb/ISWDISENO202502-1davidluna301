@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedor - Sistema de Papelería</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">📚 Papelería Plus - Vendedor</div>
+            <div class="user-info">
+                <span>Bienvenido, <span id="userName"></span> (<span id="userCode"></span>)</span>
+                <button class="btn btn-logout" onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+            <div class="row col-2">
+                <!-- Sección de Productos -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Productos Disponibles</h2>
+                        <div class="search-box">
+                            <input type="text" id="searchProduct" class="form-control" 
+                                   placeholder="Buscar producto...">
+                        </div>
+                    </div>
+                    <div id="productosList" class="productos-container">
+                        <!-- Los productos se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Sección del Pedido -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Pedido Actual</h2>
+                        <button id="limpiarPedido" class="btn btn-secondary">Limpiar</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clienteNombre" class="form-label">Nombre del Cliente</label>
+                        <input type="text" id="clienteNombre" class="form-control" 
+                               placeholder="Ingrese el nombre del cliente" required>
+                    </div>
+
+                    <div id="resumenPedido" class="pedido-container mb-2">
+                        <!-- Los productos del pedido se mostrarán aquí -->
+                    </div>
+
+                    <div class="pedido-total">
+                        <h3>Total: <span id="totalPedido">S/ 0.00</span></h3>
+                    </div>
+
+                    <button id="confirmarPedido" class="btn btn-primary" disabled>
+                        Confirmar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script th:src="@{/js/utils.js}"></script>
+    <script th:src="@{/js/auth.js}"></script>
+    <script th:src="@{/js/vendedor.js}"></script>
+</body>
+</html>
